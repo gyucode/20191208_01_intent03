@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     val REQ_CODE_FOR_INPUT_NAME = 1000
+    val REQ_CODE_FOR_INPUT_NICK_NAME = 1001
 
 //    1000이라는 숫자만 보면 어떤 의미로 쓰는 값인지 알기 어렵다. 상수로 이름을 지어줘서 읽기 편하게 가공
 
@@ -18,11 +19,18 @@ class MainActivity : AppCompatActivity() {
 
         inputNameBtn.setOnClickListener {
             val intent = Intent(this, edit_name::class.java)
-
             //결과를 받아오기 위한 요청을 하면서 화면 이동
 //            어떤 요청인지를 구별해주는 숫자값 적어줘야함
             startActivityForResult(intent , REQ_CODE_FOR_INPUT_NAME)
         }
+
+        inputNickNameBtn.setOnClickListener {
+            val intent_nick = Intent(this, ninck_name::class.java)
+
+            startActivityForResult(intent_nick , REQ_CODE_FOR_INPUT_NICK_NAME)
+        }
+
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -39,6 +47,15 @@ class MainActivity : AppCompatActivity() {
                     val inputName = data.getStringExtra("name")
 
                     nameTxt.text = inputName
+                }
+            }
+        }
+
+        if(requestCode == REQ_CODE_FOR_INPUT_NICK_NAME ){
+            if( resultCode == Activity.RESULT_OK){
+                if(data != null){
+                    val inputNickname = data.getStringExtra("nickName")
+                    nickNameTxt.text = inputNickname
                 }
             }
         }
