@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
+    android:orientation="vertical"
     tools:context=".edit_name">
 
     <EditText
@@ -19,10 +20,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
         <Button
             android:id="@+id/cancelBtn"
             android:layout_width="0dp"
@@ -35,7 +32,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="취소"/>
+            android:text="확인"/>
 
 
     </LinearLayout>
